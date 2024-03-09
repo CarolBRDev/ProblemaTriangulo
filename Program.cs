@@ -6,20 +6,24 @@ namespace ProblemaTriangulo
     {
         static void Main(string[] args)
         {
-            double xA, xB, xC, yA, yB, yC; //lados dos triangulos
-            Console.WriteLine("Informe os lados do triangulo X (um por vez: ")
-            xA = double.Parse(Console.ReadLine());
-            xB = double.Parse(Console.ReadLine());
-            xC = double.Parse(Console.ReadLine());
-            Console.WriteLine("Informe os lados do triangulo Y: ")
-            yA = double.Parse(Console.ReadLine());
-            yB = double.Parse(Console.ReadLine());
-            yC = double.Parse(Console.ReadLine());
+            Triangulo x;
+            x = new Triangulo();
+            Triangulo y = new Triangulo();
 
 
-            double areaX = CalculoAreaTriangulo(xA, xB, xC);
+            Console.WriteLine("Informe os lados do triangulo X (um por vez: ");
+            x.ladoA = double.Parse(Console.ReadLine());
+            x.ladoB = double.Parse(Console.ReadLine());
+            x.ladoC = double.Parse(Console.ReadLine());
+            Console.WriteLine("Informe os lados do triangulo Y: ");
+            y.ladoA = double.Parse(Console.ReadLine());
+            y.ladoB = double.Parse(Console.ReadLine());
+            y.ladoC = double.Parse(Console.ReadLine());
 
-            double areaY = CalculoAreaTriangulo(yA, yB, yC);
+
+            double areaX = x.CalculoArea(); //x - objeto; .CalculoArea - chama o metodo que ta descrito dentro da classe
+
+            double areaY = y.CalculoArea();
 
             Console.WriteLine($"Valor área X: {areaX.ToString("F2")}");
             Console.WriteLine($"Valor área y: {areaY.ToString("F2")}");
@@ -33,13 +37,14 @@ namespace ProblemaTriangulo
                 Console.WriteLine("Area de Y é maior");
             }
 
+
+
         }
 
-        public static double CalculoAreaTriangulo(double a, double b, double c)
-        {
-            double p = (a + b + c) / 2;
-            double area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            return area
-        }
     }
+
+
+
+
+
 }
